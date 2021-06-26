@@ -14,4 +14,8 @@ public class EmployeePayrollService {
     public long countEntries() {
         return this.employeeDataList.stream().count();
     }
+
+    public void addEmployeeToPayroll(EmployeeData employeeData) {
+        this.employeeDataList.add(employeeData);
+    }
 }
