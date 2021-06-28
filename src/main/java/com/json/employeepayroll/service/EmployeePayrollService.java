@@ -32,4 +32,8 @@ public class EmployeePayrollService {
         EmployeeData employeeData = this.getEmployeeData(name);
     }
 
+    public void deleteEmployeeData(String name){
+        this.employeeDataList.remove(this.getEmployeeData(name));
+    }
+
 }

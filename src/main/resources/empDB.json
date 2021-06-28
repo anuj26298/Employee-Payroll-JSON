@@ -1,11 +1,6 @@
 {
   "employees": [
     {
-      "id": 1,
-      "name": "Rahul",
-      "salary": 100000
-    },
-    {
       "id": 2,
       "name": "David",
       "salary": 5000

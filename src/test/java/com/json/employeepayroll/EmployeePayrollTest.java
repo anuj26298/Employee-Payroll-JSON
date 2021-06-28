@@ -94,4 +94,17 @@ public class EmployeePayrollTest {
         Assert.assertEquals(200, response.statusCode());
 
     }
+
+    @Test
+    public void givenEmployeeDataToDelete_WhenDeleted_Return200Response() {
+        EmployeePayrollService employeePayrollService;
+        EmployeeData[] employeeData = getEmployeeList();
+        employeePayrollService = new EmployeePayrollService(Arrays.asList(employeeData));
+
+        EmployeeData employeeData1 = employeePayrollService.getEmployeeData("Rahul");
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.header("Content-Type","application/json");
+        Response response = requestSpecification.delete("/employees/" + employeeData1.getId());
+        Assert.assertEquals(200, response.statusCode());
+    }
 }
