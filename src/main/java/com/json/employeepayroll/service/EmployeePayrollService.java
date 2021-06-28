@@ -2,13 +2,22 @@ package com.json.employeepayroll.service;
 
 import com.json.employeepayroll.entity.EmployeeData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePayrollService {
     List<EmployeeData> employeeDataList;
 
+    public EmployeeData getEmployeeData(String name){
+        return this.employeeDataList.stream()
+                .filter(employee -> employee.getName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
+
+
     public EmployeePayrollService(List<EmployeeData> employeeDataList) {
-        this.employeeDataList = employeeDataList;
+        this.employeeDataList = new ArrayList<>(employeeDataList);
     }
 
     public long countEntries() {
@@ -18,4 +27,9 @@ public class EmployeePayrollService {
     public void addEmployeeToPayroll(EmployeeData employeeData) {
         this.employeeDataList.add(employeeData);
     }
+
+    public void updateSalary(String name, double salary){
+        EmployeeData employeeData = this.getEmployeeData(name);
+    }
+
 }
